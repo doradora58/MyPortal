@@ -10,11 +10,11 @@ services:
     networks:
       - my-portal-net
 
-  cloudflared:
-    image: cloudflare/cloudflared:latest
-    command: tunnel --no-autoupdate --url http://myportal-nginx:80
-    networks:
-      - my-portal-net
+  # cloudflared:
+  #   image: cloudflare/cloudflared:latest
+  #   command: tunnel --no-autoupdate --url http://myportal-nginx:80
+  #   networks:
+  #     - my-portal-net
 
 networks:
   my-portal-net:
