@@ -18,7 +18,7 @@ jobs:
 
       - name: Build and start containers
         run: |
-          docker　compose build
+          docker compose build
   Run:
     runs-on: self-hosted
     needs: build-and-deploy
