@@ -1,5 +1,12 @@
 name: MyPortal
 services:
+  my-portal:
+    build:
+      context: ./frontend/my-portal
+    ports:
+      - "50000:80"
+    restart: always
+    
   nginx:
     image: nginx:latest
     container_name: myportal-nginx
@@ -7,5 +14,4 @@ services:
       - "8080:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./frontend/my-portal/build:/usr/share/nginx/html
 
