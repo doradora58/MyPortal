@@ -1,4 +1,4 @@
-name: TestAgent
+name: MyPortal
 services:
   nginx:
     image: nginx:latest
