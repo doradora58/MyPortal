@@ -3,7 +3,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 export default function Apps() {
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1>Welcome to the Apps</h1>
+      <h1>Welcome to the Appsss</h1>
 
       {/* 外部リンク付きアイコン */}
       <a
