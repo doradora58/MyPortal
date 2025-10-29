@@ -16,4 +16,4 @@ services:
       - my-portal-net
 
 networks:
-  my-sportal-net:
+  my-portal-net:
