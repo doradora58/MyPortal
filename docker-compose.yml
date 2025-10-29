@@ -1,14 +1,14 @@
 name: MyPortal
 services:
-  my-portal:
+  react-builder:
     build:
       context: ./frontend/my-portal
       dockerfile: Dockerfile
-    image: my-portal:latest
-    container_name: my-portal
-    ports:
-      - "50000:80"
-    restart: always
+    image: react-builder:latest
+    container_name: react-builder
+    volumes:
+      - react-build:/app/build
+    command: sleep infinity
     
   nginx:
     image: nginx:latest
@@ -17,6 +17,9 @@ services:
       - "8080:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./frontend/my-portal/build:/usr/share/nginx/html
+      - react-build:/usr/share/nginx/html
     depends_on:
-      - my-portal
+      - react-builder
+
+volumes:
+  react-build:
