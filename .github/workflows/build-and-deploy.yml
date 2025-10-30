@@ -18,8 +18,11 @@ jobs:
       - name: Build containers (no cache)
         run: docker compose build --no-cache
         
-      - name: Run React build
-        run: docker compose run --rm react-builder sh -c "npm install && npm run build"
+      - name: Build portal
+        run: docker compose run --rm my-portal sh -c "npm install && npm run build"
+
+      - name: Build bbs
+        run: docker compose run --rm bbs sh -c "npm install && npm run build"
 
   deploy:
     runs-on: self-hosted
