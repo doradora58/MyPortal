@@ -1,6 +1,7 @@
 {
   "name": "bbs",
   "version": "0.1.0",
+  "homepage": "/bbs",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
