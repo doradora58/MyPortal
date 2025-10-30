@@ -1,4 +1,5 @@
 import { FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 
 export default function Apps() {
   return (
