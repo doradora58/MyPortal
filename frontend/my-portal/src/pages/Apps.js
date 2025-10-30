@@ -5,15 +5,27 @@ export default function Apps() {
     <div style={{ textAlign: 'center' }}>
       <h1>Welcome to the Appsss</h1>
 
-      {/* 外部リンク付きアイコン */}
-      <a
-        href="https://ganttchart.doradora58.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ fontSize: '2rem', color: '#007bff', textDecoration: 'none' }}
-      >
-        <FaExternalLinkAlt title="Go to anttchart.doradora58.com" />
-      </a>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '2rem' }}>
+        {/* Gantt Chart */}
+        <a
+          href="https://ganttchart.doradora58.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontSize: '2rem', color: '#007bff' }}
+        >
+          <FaExternalLinkAlt title="Gantt Chart" />
+        </a>
+
+        {/* GitHub */}
+        <a
+          href="https://github.com/doradora58"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontSize: '2rem', color: '#333' }}
+        >
+          <FaGithub title="GitHub Profile" />
+        </a>
+      </div>
     </div>
   );
 }
