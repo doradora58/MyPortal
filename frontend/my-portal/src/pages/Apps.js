@@ -12,7 +12,7 @@ export default function Apps() {
         rel="noopener noreferrer"
         style={{ fontSize: '2rem', color: '#007bff', textDecoration: 'none' }}
       >
-        <FaExternalLinkAlt title="Go to Example.com" />
+        <FaExternalLinkAlt title="Go to anttchart.doradora58.com" />
       </a>
     </div>
   );
