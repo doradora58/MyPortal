@@ -4,9 +4,9 @@ services:
     build:
       context: ./frontend/my-portal
     image: my-portal-builder:latest
-    container_name: my-portal
+    container_name: my-portal-builder
     volumes:
-      - portal-build:/app/build
+      - portal-build:/usr/share/nginx/my-portal
     command: sh -c "npm install && npm run build && sleep infinity"
   
   bbs-builder:
@@ -15,7 +15,7 @@ services:
     image: bbs-builder:latest
     container_name: bbs-builder
     volumes:
-      - bbs-build:/app/build
+      - bbs-build:/usr/share/nginx/bbs
     command: sh -c "npm install && npm run build && sleep infinity"
   
   nginx:
