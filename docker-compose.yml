@@ -25,7 +25,7 @@ services:
       - "8080:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - portal-build:/usr/share/nginx/html
+      - portal-build:/usr/share/nginx/my-portal
       - bbs-build:/usr/share/nginx/bbs
     depends_on:
       - my-portal-builder
