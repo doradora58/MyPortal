@@ -1,19 +1,19 @@
 name: MyPortal
 services:
-  my-portal:
+  my-portal-builder:
     build:
       context: ./frontend/my-portal
-    image: my-portal:latest
+    image: my-portal-builder:latest
     container_name: my-portal
     volumes:
-      - portal-build:/app/build
+      - my-portal-builder:/app/build
     command: sh -c "npm install && npm run build && sleep infinity"
   
-  bbs:
+  bbs-builder:
     build:
       context: ./frontend/bbs
-    image: bbs:latest
-    container_name: bbs
+    image: bbs-builder:latest
+    container_name: bbs-builder
     volumes:
       - bbs-build:/app/build
     command: sh -c "npm install && npm run build && sleep infinity"
@@ -28,8 +28,8 @@ services:
       - portal-build:/usr/share/nginx/html
       - bbs-build:/usr/share/nginx/bbs
     depends_on:
-      - react-builder
-      - react-bbs
+      - my-portal-builder
+      - bbs-builder
 
 volumes:
   portal-build:
