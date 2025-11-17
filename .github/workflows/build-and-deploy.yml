@@ -11,18 +11,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Clean old build
         run: rm -rf frontend/my-portal/build || true
 
       - name: Build containers (no cache)
         run: docker compose build --no-cache
-        
-      - name: Build portal
-        run: docker compose run --rm my-portal-builder sh -c "npm install && npm run build"
-
-      - name: Build bbs
-        run: docker compose run --rm bbs-builder sh -c "npm install && npm run build"
 
   deploy:
     runs-on: self-hosted
@@ -30,3 +24,4 @@ jobs:
     steps:
       - name: Start containers
         run: docker compose up -d
+
