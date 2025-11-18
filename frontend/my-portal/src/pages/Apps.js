@@ -16,7 +16,7 @@ const apps = [
   {
     title: 'BBS',
     description: 'Talk about your favorite together',
-    url:'/bbs',
+    url:'/bbs/',
     icon:<FaComments />,
   },  
   {
