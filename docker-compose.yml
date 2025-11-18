@@ -17,7 +17,7 @@ services:
     container_name: bbs-builder
     volumes:
       - bbs-build:/usr/share/nginx/bbs
-    # command: sh -c "npm install && npm run build && sleep infinity"
+    command: sh -c "npm install && npm run build && sleep infinity"
   
   nginx:
     image: nginx:latest
