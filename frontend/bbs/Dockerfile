@@ -1,6 +1,7 @@
 # bbs/Dockerfile
 FROM node:20 AS builder
 WORKDIR /app
+COPY package*.json ./
+RUN npm install
 COPY . .
-RUN npm install && npm run build
-VOLUME /app/build
+RUN npm run build
