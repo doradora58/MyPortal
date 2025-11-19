@@ -1,4 +1,6 @@
+version: '3.8'
 name: MyPortal
+
 services:
   my-portal-builder:
     build:
@@ -6,27 +8,28 @@ services:
     image: my-portal-builder:latest
     container_name: my-portal-builder
     volumes:
-      - portal-build:/usr/share/nginx/my-portal
-    command: sh -c "npm install && npm run build && sleep infinity"
-  
+      - portal-build:/usr/share/nginx/my-portal 
+    command: sh -c "cd /app && npm install && rm -rf /usr/share/nginx/my-portal/* && npm run build && cp -r build/* /usr/share/nginx/my-portal && chmod -R a+r /usr/share/nginx/my-portal"
+
   bbs-builder:
     build:
       context: ./frontend/bbs
+      dockerfile: Dockerfile
     image: bbs-builder:latest
     container_name: bbs-builder
     volumes:
       - bbs-build:/usr/share/nginx/bbs
-    command: sh -c "npm install && npm run build && sleep infinity"
-  
+    command: sh -c "cd /app && npm install && rm -rf /usr/share/nginx/bbs/* && npm run build && cp -r dist/* /usr/share/nginx/bbs && chmod -R a+r /usr/share/nginx/bbs"
+ 
   nginx:
     image: nginx:latest
     container_name: nginx
     ports:
       - "8080:80"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - portal-build:/usr/share/nginx/my-portal
-      - bbs-build:/usr/share/nginx/bbs
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf 
+      - portal-build:/usr/share/nginx/my-portal:ro
+      - bbs-build:/usr/share/nginx/bbs:ro
     depends_on:
       - my-portal-builder
       - bbs-builder
