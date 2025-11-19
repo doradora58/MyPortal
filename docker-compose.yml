@@ -19,7 +19,7 @@ services:
     container_name: bbs-builder
     volumes:
       - bbs-build:/usr/share/nginx/bbs
-    command: sh -c "cd /app && npm install && rm -rf /usr/share/nginx/bbs/* && npm run build && cp -r dist/* /usr/share/nginx/bbs"
+    command: sh -c "cd /app && npm install && rm -rf /usr/share/nginx/bbs/* && npm run build && cp -r dist/* /usr/share/nginx/bbs && chmod -R 755 /usr/share/nginx/bbs"
  
   nginx:
     image: nginx:latest
