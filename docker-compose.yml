@@ -9,7 +9,7 @@ services:
     container_name: my-portal-builder
     volumes:
       - portal-build:/usr/share/nginx/my-portal 
-    command: sh -c "cd /app && npm install && rm -rf /usr/share/nginx/my-portal/* && npm run build && cp -r build/* /usr/share/nginx/my-portal"
+    command: sh -c "cd /app && npm install && rm -rf /usr/share/nginx/my-portal/* && npm run build && cp -r build/* /usr/share/nginx/my-portal && chmod -R 755 /usr/share/nginx/my-portal"
 
   bbs-builder:
     build:
