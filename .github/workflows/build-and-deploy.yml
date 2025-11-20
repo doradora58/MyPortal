@@ -16,7 +16,7 @@ jobs:
         run: docker compose down --remove-orphans || true
 
       - name: Build and tag new images
-        run: docker compose build 
+        run: docker compose build -d --build --force-recreate
 
   deploy:
     runs-on: self-hosted

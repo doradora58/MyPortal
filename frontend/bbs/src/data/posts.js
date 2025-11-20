@@ -18,7 +18,7 @@ export const dummyPosts = [
     id: 3,
     title: "フロントエンドから始める設計",
     content: "バックエンドを気にせず、まずはコンポーネントを組み上げるのが楽しい！",
-    author: "テスト花子",
+    author: "Kutsu",
     createdAt: "2025/11/19 12:00",
   },
 ];
