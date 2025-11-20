@@ -1,0 +1,31 @@
+/* Cardコンポーネント専用のスタイル */
+.card-container {
+    /* CSS変数を使って、グローバルなデザインと連携 */
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 25px; /* 下に余白 */
+    border-radius: 10px; /* 角丸 */
+    
+    /* 影の適用 (App.cssで定義したCSS変数を使用) */
+    box-shadow: var(--shadow-light); 
+    
+    /* ホバーエフェクトのための準備 */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+/* ホバーエフェクトの追加 */
+.card-container:hover {
+    transform: translateY(-5px); /* マウスオーバー時にわずかに浮き上がらせる */
+    box-shadow: var(--shadow-hover); /* ホバー時の影を濃くする */
+}
+
+/* タイトルのスタイル */
+.card-title {
+    font-size: 1.4rem;
+    color: var(--text-color-dark);
+    /* セクションを分けるための境界線 */
+    border-bottom: 1px solid var(--border-color); 
+    padding-bottom: 10px;
+    margin-bottom: 15px; /* タイトルとコンテンツの間の余白 */
+    font-weight: 600;
+}

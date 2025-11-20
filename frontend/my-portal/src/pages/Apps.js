@@ -1,5 +1,7 @@
 import { FaExternalLinkAlt, FaComments, FaProjectDiagram, FaGithub } from 'react-icons/fa';
-
+import React from 'react';
+import Card from '../components/Card';
+import '../App.css';
 const apps = [
   {
     title: 'My Portal',
@@ -31,21 +33,27 @@ const apps = [
 
 export default function Apps() {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h1>My Web Apps</h1>  
+    <div style={{ padding: '20px' }}>
+      <h1 className="apps-header">My Apps</h1>  
+      
       <div className="card-grid">
         {apps.map((app, index) => (
-          <a
+          <Card 
             key={index}
-            href={app.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="app-card"
+            className="app-link-card"
           >
-            <div className="icon">{app.icon}</div>
-            <h2>{app.title}</h2>
-            <p>{app.description}</p>
-          </a>
+            {/* カード全体をリンクとして機能させるため、中身をaタグで囲む */}
+            <a
+              href={app.url}
+              target={app.url.startsWith('/') ? "_self" : "_blank"}
+              rel="noopener noreferrer"
+              className="app-link-content"
+            >
+              <div className="icon-wrapper">{app.icon}</div>
+              <h2>{app.title}</h2>
+              <p>{app.description}</p>
+            </a>
+          </Card>
         ))}
       </div>
     </div>

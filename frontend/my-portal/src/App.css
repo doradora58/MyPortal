@@ -1,38 +1,51 @@
-.App {
-  text-align: center;
+/* アプリ一覧全体のヘッダー調整 */
+.apps-header {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    color: var(--primary-dark-color);
+    letter-spacing: 1px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 1. グリッドレイアウトの定義は残す */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* 2. ★Cardコンポーネントへのデザイン干渉は全て削除！★ */
+/* 3. リンクの見た目を整えるためのスタイル */
+.app-link-content {
+    /* aタグのデフォルト装飾をリセット */
+    text-decoration: none; 
+    color: inherit; 
+    
+    /* 中身の配置 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    
+    /* カード全体がクリックできるように、リンクコンテンツを広げる */
+    width: 100%;
+    height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* 4. ホバーエフェクトの調整 */
+/* Card.css のホバーエフェクトに任せるため、Apps.cssでは複雑なホバーは定義しない */
+
+.icon-wrapper {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
-}
+/* ... その他、アイコン、h2, p のスタイルは維持 ... */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* レスポンシブ対応の基礎は維持 */
+/* ... */
