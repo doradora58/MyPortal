@@ -1,4 +1,4 @@
-import { FaExternalLinkAlt, FaComments, FaProjectDiagram, FaGithub } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaComments, FaProjectDiagram, FaGithub, FaPage4 } from 'react-icons/fa';
 import React from 'react';
 import Card from '../components/Card';
 import '../App.css';
@@ -6,26 +6,32 @@ const apps = [
   {
     title: 'My Portal',
     description: 'This is portal site',
-    url:'/',
-    icon:<FaExternalLinkAlt/>,
+    url: '/',
+    icon: <FaExternalLinkAlt />,
   },
   {
     title: 'Gantt Chart',
     description: 'This is Gantt Chart site. You can schedule',
-    url:'https://ganttchart.doradora58.com',
-    icon:<FaProjectDiagram />,
+    url: 'https://ganttchart.doradora58.com',
+    icon: <FaProjectDiagram />,
   },
   {
     title: 'BBS',
     description: 'Talk about your favorite together',
-    url:'/bbs/',
-    icon:<FaComments />,
-  },  
+    url: '/bbs/',
+    icon: <FaComments />,
+  },
+  {
+    title: 'Sample',
+    description: 'Sample web page',
+    url: '/sample/',
+    icon: <FaFileAlt />,
+  },
   {
     title: 'GitHub',
     description: 'My Git Hub page',
-    url:'https://github.com/doradora58',
-    icon:<FaGithub />,
+    url: 'https://github.com/doradora58',
+    icon: <FaGithub />,
   },
 
 ]
@@ -34,11 +40,11 @@ const apps = [
 export default function Apps() {
   return (
     <div style={{ padding: '20px' }}>
-      <h1 className="apps-header">My Apps</h1>  
-      
+      <h1 className="apps-header">My Apps</h1>
+
       <div className="card-grid">
         {apps.map((app, index) => (
-          <Card 
+          <Card
             key={index}
             className="app-link-card"
           >
