@@ -1,0 +1,10 @@
+/* src/components/Notification.css */
+
+.notification-bar {
+  background-color: #f39c12; /* 警告を示すオレンジ色 */
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+  /* HeaderとMainの間など、目立つ場所に配置する */
+}

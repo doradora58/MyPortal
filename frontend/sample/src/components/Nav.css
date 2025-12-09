@@ -1,0 +1,30 @@
+/* src/components/Nav.css */
+
+.main-nav {
+  /* 🚨 Nav全体の背景色を白に変更 🚨 */
+  background-color: white; 
+  padding: 10px 20px; /* 上下のパディングを追加して領域を明確に */
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin: 0; /* マージンをリセット */
+}
+
+.main-nav li {
+  margin-right: 20px;
+}
+
+.main-nav a {
+  /* 🚨 文字色を黒に変更 🚨 */
+  color: #333; 
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
+  color: #007bff; /* ホバー時の色を青に変更 */
+}

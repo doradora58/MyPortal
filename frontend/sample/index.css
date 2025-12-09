@@ -1,0 +1,16 @@
+/* src/index.css */
+
+/* 1. リセットと高さ設定 */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%; 
+  /* 見出しタグなどのリセットもここで行う */
+}
+
+/* 2. Sticky Footer のための縦方向 Flexbox */
+#root {
+  display: flex;             /* Flexコンテナにする */
+  flex-direction: column;    /* 要素を縦に並べる */
+  min-height: 100vh;         /* 画面の高さ全体を占める */
+}

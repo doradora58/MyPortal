@@ -1,0 +1,16 @@
+/* src/App.css */
+
+/* .app-main (Mainコンポーネント内の mainタグ に適用) */
+.app-main {
+  flex-grow: 1;               /* 縦方向の残りスペースを占有 */
+  padding: 0 20px 0 0; 
+  /* ここに背景色などを追加して色分けします */
+}
+
+/* 🚨 content-area (MainとAsideの新しい親コンテナ) に横並びのFlexboxを適用 🚨 */
+.content-area {
+  display: flex;             /* 横並びのFlexboxを有効化 */
+  flex-grow: 1;              /* 縦のFlexbox（#root）で、残りの縦スペースを全て占める */
+  padding: 20px;      /* 上部のパディングはHeaderとFooterの間に入らないように調整 */
+  background-color: lightgray;
+}

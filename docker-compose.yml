@@ -21,6 +21,17 @@ services:
       - bbs-build:/usr/share/nginx/bbs
     command: sh -c "cd /app && npm install && rm -rf /usr/share/nginx/bbs/* && npm run build && cp -r dist/* /usr/share/nginx/bbs && chmod -R 755 /usr/share/nginx/bbs"
  
+  sample-builder:
+    build:
+      context: ./frontend/sample
+      dockerfile: Dockerfile
+    image: sample-builder:latest
+    container_name: sample-builder
+    volumes:
+      - sample-build:/usr/share/nginx/sample
+    command: sh -c "cd /app && npm install && rm -rf /usr/share/nginx/sample/* && npm run build && cp -r dist/* /usr/share/nginx/sample && chmod -R 755 /usr/share/nginx/sample"
+
+
   nginx:
     image: nginx:latest
     container_name: nginx

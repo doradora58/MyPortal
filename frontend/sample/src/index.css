@@ -1,0 +1,21 @@
+/* src/index.css */
+
+/* 1. 全体のリセットと高さ設定 */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%; 
+}
+
+/* 2. Flexboxレイアウトの適用（Sticky Footerを実現） */
+#root {
+  display: flex;             
+  flex-direction: column;    
+  min-height: 100vh;         
+}
+
+/* 3. 見出しタグなどのデフォルトマージンもリセット */
+h1, h2, p, header, footer, main, section {
+  margin: 0;
+  padding: 0;
+}

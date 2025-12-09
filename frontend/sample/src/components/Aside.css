@@ -1,0 +1,12 @@
+
+/* src/components/Aside.css */
+
+.app-aside {
+  background-color: #fcf3cf; /* 目立つ薄い黄色 */
+  padding: 15px;
+  border-radius: 5px;
+  /* メインコンテンツとの間に余白を作る */
+  margin-left: 20px; 
+  /* サイドバーの幅を固定 */
+  width: 200px; 
+}

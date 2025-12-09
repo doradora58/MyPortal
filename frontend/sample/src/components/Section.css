@@ -1,0 +1,17 @@
+/* src/components/Section.css */
+
+.app-section {
+  padding: 15px; 
+  margin-bottom: 15px;
+  border-left: 5px solid #3498db;
+}
+
+/* 奇数番目のセクションの色 */
+.app-section:nth-child(odd) {
+    background-color: white;
+}
+
+/* 偶数番目のセクションの色 */
+.app-section:nth-child(even) {
+    background-color: #f7f7f7; 
+}

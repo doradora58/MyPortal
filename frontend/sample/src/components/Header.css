@@ -1,0 +1,8 @@
+/* src/components/Header.css */
+
+.app-header {
+  background-color: #2c3e50; /* 濃い青 (Headerの色) */
+  color: white; 
+  padding: 15px 20px;
+  border-bottom: 3px solid #1abc9c; /* 境界線 */
+}

@@ -1,0 +1,7 @@
+/* src/App.css */
+
+.app-main {
+  flex-grow: 1;               /* 🚨 Footer固定のための最重要CSS 🚨 */
+  padding: 30px 20px; 
+  background-color: #e8fae8;  /* メインコンテンツの色 */
+}
