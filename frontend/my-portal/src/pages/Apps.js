@@ -1,4 +1,4 @@
-import { FaExternalLinkAlt, FaComments, FaProjectDiagram, FaGithub, FaPage4 } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaComments, FaProjectDiagram, FaGithub, FaFileAlt } from 'react-icons/fa';
 import React from 'react';
 import Card from '../components/Card';
 import '../App.css';
