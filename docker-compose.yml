@@ -41,10 +41,13 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf 
       - portal-build:/usr/share/nginx/my-portal:ro
       - bbs-build:/usr/share/nginx/bbs:ro
+      - sample-build:/usr/share/nginx/sample:ro
     depends_on:
       - my-portal-builder
       - bbs-builder
+      - sample-builder
 
 volumes:
   portal-build:
   bbs-build:
+  sample-build:
