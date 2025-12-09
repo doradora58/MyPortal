@@ -1,8 +1,8 @@
 # bbs/Dockerfile
-FROM node:22-alpine AS builder
+FROM node:lts-alpine AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+RUN chmod +x ./node_modules/.bin/*
 RUN npm run build
-FROM nginx:alpine
