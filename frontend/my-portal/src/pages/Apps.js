@@ -1,4 +1,4 @@
-import { FaExternalLinkAlt, FaComments, FaProjectDiagram, FaGithub, FaFileAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaComments, FaProjectDiagram, FaGithub, FaFileAlt, FaBookOpen } from 'react-icons/fa';
 import React from 'react';
 import Card from '../components/Card';
 import '../App.css';
@@ -26,6 +26,12 @@ const apps = [
     description: 'Sample web page',
     url: '/sample/',
     icon: <FaFileAlt />,
+  },
+  {
+    title: 'Blog',
+    description: 'My blog',
+    url: '/https://beyondonestep.com',
+    icon: <FaBookOpen />,
   },
   {
     title: 'GitHub',
