@@ -30,7 +30,7 @@ const apps = [
   {
     title: 'Blog',
     description: 'My blog',
-    url: '/https://beyondonestep.com',
+    url: 'https://beyondonestep.com',
     icon: <FaBookOpen />,
   },
   {
