@@ -50,6 +50,13 @@ services:
       - gantt-data:/data
     restart: unless-stopped
 
+  money-dashboard:
+    build:
+      context: ./frontend/money-dashboard
+    image: money-dashboard:latest
+    container_name: money-dashboard
+    restart: unless-stopped
+
   nginx:
     image: nginx:latest
     container_name: nginx
@@ -71,6 +78,8 @@ services:
       gantt-builder:
         condition: service_completed_successfully
       gantt-api:
+        condition: service_started
+      money-dashboard:
         condition: service_started
 
 volumes:

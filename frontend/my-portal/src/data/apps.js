@@ -7,6 +7,7 @@ import {
   FaExternalLinkAlt,
   FaFileAlt,
   FaGithub,
+  FaCoins,
   FaProjectDiagram,
   FaTruck,
 } from 'react-icons/fa';
@@ -25,6 +26,13 @@ const apps = [
     category: 'Planning',
     url: '/gantt-chart/',
     icon: <FaProjectDiagram />,
+  },
+  {
+    title: 'Money Dashboard',
+    description: 'Simulate long-term savings and investment growth.',
+    category: 'Finance',
+    url: '/money-dashboard/',
+    icon: <FaCoins />,
   },
   {
     title: 'BBS',
