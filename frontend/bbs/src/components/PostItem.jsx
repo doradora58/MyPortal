@@ -1,18 +1,44 @@
 import React from 'react';
 
-// PostItem は一つの投稿データを受け取る
-const PostItem = ({ post }) => {
-  return (
-    <div style={{ border: '1px solid #ccc', padding: '15px', marginBottom: '10px' }}>
-      <h3>{post.title} (ID: {post.id})</h3>
-      <p>{post.content.substring(0, 50)}...</p>
-      <small>
-        Author: {post.author} / Date : {post.createdAt}
-      </small>
-      {/* <a>タグで詳細ページへのリンクを想定 */}
-      <a href={`/post/${post.id}`} style={{ marginLeft: '10px' }}>Show detail</a>
-    </div>
-  );
+const categoryColors = {
+  開発: 'development',
+  アイデア: 'ideas',
+  お知らせ: 'announcements',
 };
+
+function formatDate(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat('ja-JP', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(date);
+}
+
+function PostItem({ post }) {
+  const category = post.category || '雑談';
+  const author = post.author || 'ゲスト';
+  const initial = [...author][0] || 'G';
+
+  return (
+    <article className="bbs-post">
+      <div className={`bbs-author-avatar avatar-${categoryColors[category] || 'default'}`} aria-hidden="true">
+        {initial.toUpperCase()}
+      </div>
+      <div className="bbs-post-content">
+        <div className="bbs-post-meta">
+          <strong className="bbs-post-author">{author}</strong>
+          <time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time>
+        </div>
+        <h3>{post.title}</h3>
+        <p className="bbs-post-body">{post.content}</p>
+        <span className={`bbs-post-category category-${categoryColors[category] || 'default'}`}>{category}</span>
+      </div>
+    </article>
+  );
+}
 
 export default PostItem;
