@@ -1,0 +1,214 @@
+.profile-page {
+    --profile-ink: #172b4d;
+    --profile-muted: #63748b;
+    --profile-primary: #3156a3;
+    --profile-border: #e4eaf2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 18px 8px 42px;
+}
+
+.profile-intro {
+    padding: 34px 38px;
+    border: 1px solid var(--profile-border);
+    border-radius: 18px;
+    background:
+        radial-gradient(ellipse at 92% 10%, rgb(101 137 218 / 12%), transparent 34%),
+        #fff;
+    box-shadow: 0 5px 20px rgb(23 43 77 / 4%);
+}
+
+.profile-eyebrow {
+    margin: 0 0 12px;
+    color: var(--profile-primary);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.profile-intro-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.profile-avatar {
+    display: grid;
+    width: 58px;
+    height: 58px;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: 17px;
+    background: #eef3ff;
+    color: var(--profile-primary);
+    font-size: 1.45rem;
+    font-weight: 700;
+}
+
+.profile-intro h1 {
+    margin: 0;
+    color: var(--profile-ink);
+    font-size: clamp(1.6rem, 3.5vw, 2.15rem);
+    letter-spacing: -0.035em;
+}
+
+.profile-intro-content p {
+    max-width: 690px;
+    margin: 12px 0 0;
+    color: var(--profile-muted);
+    font-size: 0.96rem;
+    line-height: 1.85;
+}
+
+.profile-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 23px 0 0 78px;
+    padding: 8px 11px;
+    border: 1px solid #dce8df;
+    border-radius: 8px;
+    background: #f5faf6;
+    color: #42684c;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.profile-focus {
+    margin-top: 37px;
+}
+
+.profile-section-heading {
+    margin-bottom: 16px;
+}
+
+.profile-section-heading .profile-eyebrow {
+    margin-bottom: 6px;
+}
+
+.profile-section-heading h2 {
+    margin: 0;
+    color: var(--profile-ink);
+    font-size: 1.35rem;
+    letter-spacing: -0.025em;
+}
+
+.profile-focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.profile-focus-card {
+    min-width: 0;
+    padding: 21px;
+    border: 1px solid var(--profile-border);
+    border-radius: 13px;
+    background: #fff;
+    box-shadow: 0 3px 12px rgb(23 43 77 / 4%);
+}
+
+.profile-focus-icon {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 11px;
+    background: #eef3ff;
+    color: var(--profile-primary);
+    font-size: 1.05rem;
+}
+
+.profile-focus-card h3 {
+    margin: 16px 0 7px;
+    color: var(--profile-ink);
+    font-size: 1rem;
+}
+
+.profile-focus-card p {
+    margin: 0;
+    color: var(--profile-muted);
+    font-size: 0.85rem;
+    line-height: 1.65;
+}
+
+.profile-apps-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 23px;
+    padding: 11px 15px;
+    border-radius: 9px;
+    background: var(--profile-primary);
+    color: #fff;
+    font-size: 0.86rem;
+    font-weight: 650;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.profile-apps-link:hover {
+    background: #203d72;
+}
+
+.profile-apps-link:focus-visible {
+    outline: 3px solid #8eafff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+    .profile-focus-grid {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .profile-focus-card {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        column-gap: 13px;
+        align-items: center;
+        padding: 16px;
+    }
+
+    .profile-focus-card h3 {
+        margin: 0;
+    }
+
+    .profile-focus-card p {
+        grid-column: 2;
+        margin-top: 4px;
+    }
+}
+
+@media (max-width: 520px) {
+    .profile-page {
+        padding: 6px 0 28px;
+    }
+
+    .profile-intro {
+        padding: 24px 20px;
+        border-radius: 15px;
+    }
+
+    .profile-intro-content {
+        gap: 13px;
+    }
+
+    .profile-avatar {
+        width: 46px;
+        height: 46px;
+        border-radius: 13px;
+        font-size: 1.2rem;
+    }
+
+    .profile-intro-content p {
+        margin-left: -59px;
+        padding-top: 8px;
+        font-size: 0.9rem;
+    }
+
+    .profile-note {
+        margin: 16px 0 0;
+        font-size: 0.73rem;
+    }
+}

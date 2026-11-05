@@ -1,56 +1,93 @@
 import React from 'react';
-import Card from '../components/Card';
-import DashboardMetric from '../components/DashboardMetric'; // ★追加★
 import { Link } from 'react-router-dom';
-import { FaComments, FaRegFileAlt, FaUsers } from 'react-icons/fa'; // アイコンの追加
+import { FaArrowRight, FaArrowUpRightFromSquare, FaComments, FaUser } from 'react-icons/fa6';
+import apps from '../data/apps';
+import './Home.css';
 
-const Home = () => {
+const featuredApps = ['FMS', 'OrderManagement', 'Grafana']
+  .map((title) => apps.find((app) => app.title === title))
+  .filter(Boolean);
+
+function Home() {
   return (
-  <div className="container">
-      <h1 style={{ marginBottom: '40px' }}>Welcome to my portal</h1>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginBottom: '40px' }}>
-        <DashboardMetric 
-          icon={<FaComments />} 
-          label="BBS 今月の投稿数" 
-          value={125} 
-          unit="件" 
-          color="#FF9800" // オレンジ系
-        />
-        <DashboardMetric 
-          icon={<FaRegFileAlt />} 
-          label="未読ドキュメント" 
-          value={3} 
-          unit="件" 
-          color="#03A9F4" // ブルー系
-        />
-        <DashboardMetric 
-          icon={<FaUsers />} 
-          label="総ユーザー数" 
-          value={42} 
-          unit="人" 
-          color="#8BC34A" // グリーン系
-        />
-      </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
-        {/* ... 既存のカード（Apps, Profile, News）はそのまま ... */}
-        <Card title="🚀 アプリケーション">
-          <p>BBS掲示板やその他のツールにすぐにアクセスできます。</p>
-          <Link to="/apps">アプリ一覧へ</Link>
-        </Card>
-        
-        <Card title="🔔 最新ニュース">
-          <ul>
-            <li>Vite 3.0がリリースされました！</li>
-            <li>社内ポータルのメンテナンス情報</li>
-          </ul>
-        </Card>
-        
-        <Card title="👤 プロフィール情報">
-          <p>認証状態を気にせず、常に利用可能な固定情報セクションです。</p>
-          <Link to="/profile">詳細を見る</Link>
-        </Card>
-      </div>
-      </div>
+    <div className="home-page">
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="home-hero-copy">
+          <p className="home-eyebrow">MY WORKSPACE</p>
+          <h1 id="home-title">すべてのツールに、<br />ここからアクセス。</h1>
+          <p className="home-lead">
+            日々使うアプリやサービスをひとつの場所にまとめました。
+            必要なツールへすぐに移動できます。
+          </p>
+          <div className="home-actions">
+            <Link to="/apps" className="home-primary-action">
+              アプリ一覧を見る <FaArrowRight aria-hidden="true" />
+            </Link>
+            <Link to="/bbs/" className="home-secondary-action">
+              掲示板へ <FaComments aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+        <div className="home-hero-aside" aria-label={`${apps.length}個のアプリを利用できます`}>
+          <div className="home-orbit home-orbit-one" />
+          <div className="home-orbit home-orbit-two" />
+          <div className="home-workspace-card">
+            <span className="home-workspace-icon"><FaArrowUpRightFromSquare aria-hidden="true" /></span>
+            <span className="home-workspace-label">YOUR WORKSPACE</span>
+            <strong>{apps.length}</strong>
+            <span className="home-workspace-caption">apps in one place</span>
+            <div className="home-workspace-dots" aria-hidden="true">
+              <i /><i /><i /><i /><i />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-featured" aria-labelledby="featured-title">
+        <div className="home-section-heading">
+          <div>
+            <p className="home-section-eyebrow">QUICK ACCESS</p>
+            <h2 id="featured-title">よく使うアプリ</h2>
+          </div>
+          <Link to="/apps" className="home-view-all">
+            すべて見る <FaArrowRight aria-hidden="true" />
+          </Link>
+        </div>
+        <div className="home-featured-grid">
+          {featuredApps.map((app) => (
+            <a
+              className="home-feature-card"
+              href={app.url}
+              key={app.title}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="home-feature-icon" aria-hidden="true">{app.icon}</span>
+              <span className="home-feature-copy">
+                <span className="home-feature-category">{app.category}</span>
+                <strong>{app.title}</strong>
+                <span className="home-feature-description">{app.description}</span>
+              </span>
+              <FaArrowUpRightFromSquare className="home-feature-arrow" aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-bottom-links" aria-label="その他のリンク">
+        <Link to="/profile" className="home-bottom-link">
+          <span className="home-bottom-icon"><FaUser aria-hidden="true" /></span>
+          <span><strong>プロフィール</strong><small>プロフィール情報を見る</small></span>
+          <FaArrowRight className="home-bottom-arrow" aria-hidden="true" />
+        </Link>
+        <Link to="/bbs/" className="home-bottom-link">
+          <span className="home-bottom-icon"><FaComments aria-hidden="true" /></span>
+          <span><strong>コミュニティ</strong><small>BBSで話題をチェック</small></span>
+          <FaArrowRight className="home-bottom-arrow" aria-hidden="true" />
+        </Link>
+      </section>
+    </div>
   );
 }
+
 export default Home;

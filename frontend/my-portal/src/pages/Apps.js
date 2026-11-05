@@ -1,73 +1,52 @@
-import { FaExternalLinkAlt, FaComments, FaProjectDiagram, FaGithub, FaFileAlt, FaBookOpen } from 'react-icons/fa';
 import React from 'react';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import Card from '../components/Card';
+import apps from '../data/apps';
 import '../App.css';
-const apps = [
-  {
-    title: 'My Portal',
-    description: 'This is portal site',
-    url: '/',
-    icon: <FaExternalLinkAlt />,
-  },
-  {
-    title: 'Gantt Chart',
-    description: 'This is Gantt Chart site. You can schedule',
-    url: 'https://ganttchart.doradora58.com',
-    icon: <FaProjectDiagram />,
-  },
-  {
-    title: 'BBS',
-    description: 'Talk about your favorite together',
-    url: '/bbs/',
-    icon: <FaComments />,
-  },
-  {
-    title: 'Sample',
-    description: 'Sample web page',
-    url: '/sample/',
-    icon: <FaFileAlt />,
-  },
-  {
-    title: 'Blog',
-    description: 'My blog',
-    url: 'https://beyondonestep.com',
-    icon: <FaBookOpen />,
-  },
-  {
-    title: 'GitHub',
-    description: 'My Git Hub page',
-    url: 'https://github.com/doradora58',
-    icon: <FaGithub />,
-  },
-
-]
-
 
 export default function Apps() {
   return (
-    <div style={{ padding: '20px' }}>
-      <h1 className="apps-header">My Apps</h1>
+    <section className="apps-page" aria-labelledby="apps-title">
+      <header className="apps-intro">
+        <div>
+          <p className="apps-eyebrow">MY WORKSPACE</p>
+          <h1 className="apps-header" id="apps-title">My Apps</h1>
+          <p className="apps-description">
+            A quick way to get to the tools and services you use.
+          </p>
+        </div>
+        <p className="apps-count" aria-label={`${apps.length} apps`}>
+          <strong>{apps.length}</strong>
+          <span> apps</span>
+        </p>
+      </header>
 
       <div className="card-grid">
-        {apps.map((app, index) => (
-          <Card
-            key={index}
-            className="app-link-card"
-          >
-            {/* カード全体をリンクとして機能させるため、中身をaタグで囲む */}
-            <a
-              href={app.url}
-              target={app.url.startsWith('/') ? "_self" : "_blank"}
-              rel="noopener noreferrer"
-              className="app-link-content"
-            >
-              <div className="icon-wrapper">{app.icon}</div>
-              <h2>{app.title}</h2>
-              <p>{app.description}</p>
-            </a>
-          </Card>
-        ))}
+        {apps.map((app) => {
+          const isInternal = app.url.startsWith('/');
+          return (
+            <Card key={app.title} className="app-link-card">
+              <a
+                href={app.url}
+                target={isInternal ? '_self' : '_blank'}
+                rel={isInternal ? undefined : 'noopener noreferrer'}
+                className="app-link-content"
+                aria-label={`${app.title}: ${app.description}${isInternal ? '' : ' (opens in a new tab)'}`}
+              >
+                <div className="app-card-top">
+                  <span className="icon-wrapper" aria-hidden="true">{app.icon}</span>
+                  <span className="app-category">{app.category}</span>
+                </div>
+                <div className="app-card-copy">
+                  <h2>{app.title}</h2>
+                  <p>{app.description}</p>
+                </div>
+                <FaExternalLinkAlt className="app-card-link-icon" aria-hidden="true" />
+              </a>
+            </Card>
+          );
+        })}
       </div>
-    </div>
+    </section>
   );
 }

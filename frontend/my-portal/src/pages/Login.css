@@ -1,0 +1,113 @@
+.login-page {
+    --login-ink: #172b4d;
+    --login-muted: #63748b;
+    --login-primary: #3156a3;
+    display: grid;
+    min-height: 58vh;
+    place-items: center;
+    padding: 22px 8px 42px;
+}
+
+.login-status-card {
+    width: min(100%, 520px);
+    box-sizing: border-box;
+    padding: 39px 38px;
+    border: 1px solid #e4eaf2;
+    border-radius: 18px;
+    background:
+        radial-gradient(ellipse at 92% 8%, rgb(101 137 218 / 13%), transparent 34%),
+        #fff;
+    box-shadow: 0 8px 28px rgb(23 43 77 / 7%);
+    text-align: center;
+}
+
+.login-status-icon {
+    display: grid;
+    width: 58px;
+    height: 58px;
+    place-items: center;
+    margin: 0 auto 20px;
+    border-radius: 17px;
+    background: #eef3ff;
+    color: var(--login-primary);
+    font-size: 1.35rem;
+}
+
+.login-eyebrow {
+    margin: 0 0 9px;
+    color: var(--login-primary);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.login-status-card h1 {
+    margin: 0;
+    color: var(--login-ink);
+    font-size: clamp(1.45rem, 4vw, 1.85rem);
+    letter-spacing: -0.035em;
+}
+
+.login-description {
+    max-width: 390px;
+    margin: 13px auto 0;
+    color: var(--login-muted);
+    font-size: 0.92rem;
+    line-height: 1.8;
+}
+
+.login-status-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 23px 0 0;
+    padding: 12px 14px;
+    border: 1px solid #f0dfbd;
+    border-radius: 9px;
+    background: #fffaf0;
+    color: #745a2a;
+    font-size: 0.78rem;
+    line-height: 1.55;
+    text-align: left;
+}
+
+.login-status-note svg {
+    flex: 0 0 auto;
+    margin-top: 2px;
+}
+
+.login-apps-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 24px;
+    padding: 11px 15px;
+    border-radius: 9px;
+    background: var(--login-primary);
+    color: #fff;
+    font-size: 0.86rem;
+    font-weight: 650;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.login-apps-link:hover {
+    background: #203d72;
+}
+
+.login-apps-link:focus-visible {
+    outline: 3px solid #8eafff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+    .login-page {
+        min-height: 52vh;
+        padding: 8px 0 28px;
+    }
+
+    .login-status-card {
+        padding: 30px 21px;
+        border-radius: 15px;
+    }
+}
