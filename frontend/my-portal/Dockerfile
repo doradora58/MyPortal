@@ -1,5 +1,5 @@
 # my-portal/Dockerfile
-FROM node:18 AS builder
+FROM node:22-slim AS builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm install

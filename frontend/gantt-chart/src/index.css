@@ -1,0 +1,23 @@
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: #f5f7fb;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: Inter, "Segoe UI", "Noto Sans JP", Meiryo, sans-serif;
+}
+
+::selection {
+  background: #dbe6ff;
+}

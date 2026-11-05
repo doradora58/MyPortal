@@ -1,4 +1,3 @@
-version: '3.8'
 name: MyPortal
 
 services:
@@ -31,6 +30,25 @@ services:
       - sample-build:/usr/share/nginx/sample
     command: sh -c "cd /app && npm install && rm -rf /usr/share/nginx/sample/* && npm run build && cp -r dist/* /usr/share/nginx/sample && chmod -R 755 /usr/share/nginx/sample"
 
+  gantt-builder:
+    build:
+      context: ./frontend/gantt-chart
+    image: gantt-builder:latest
+    container_name: gantt-builder
+    volumes:
+      - gantt-chart-build:/usr/share/nginx/gantt-chart
+    command: sh -c "rm -rf /usr/share/nginx/gantt-chart/* && cp -r /app/dist/* /usr/share/nginx/gantt-chart/ && chmod -R 755 /usr/share/nginx/gantt-chart"
+
+  gantt-api:
+    build:
+      context: ./backend/TaskManager
+    image: gantt-api:latest
+    container_name: gantt-api
+    environment:
+      TASKS_FILE: /data/tasks.json
+    volumes:
+      - gantt-data:/data
+    restart: unless-stopped
 
   nginx:
     image: nginx:latest
@@ -42,12 +60,22 @@ services:
       - portal-build:/usr/share/nginx/my-portal:ro
       - bbs-build:/usr/share/nginx/bbs:ro
       - sample-build:/usr/share/nginx/sample:ro
+      - gantt-chart-build:/usr/share/nginx/gantt-chart:ro
     depends_on:
-      - my-portal-builder
-      - bbs-builder
-      - sample-builder
+      my-portal-builder:
+        condition: service_completed_successfully
+      bbs-builder:
+        condition: service_completed_successfully
+      sample-builder:
+        condition: service_completed_successfully
+      gantt-builder:
+        condition: service_completed_successfully
+      gantt-api:
+        condition: service_started
 
 volumes:
   portal-build:
   bbs-build:
   sample-build:
+  gantt-chart-build:
+  gantt-data:

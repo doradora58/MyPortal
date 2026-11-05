@@ -21,9 +21,9 @@ const apps = [
   },
   {
     title: 'Gantt Chart',
-    description: 'Plan projects and keep track of schedules.',
+    description: 'Visualize project tasks and schedules.',
     category: 'Planning',
-    url: 'https://ganttchart.doradora58.com',
+    url: '/gantt-chart/',
     icon: <FaProjectDiagram />,
   },
   {
